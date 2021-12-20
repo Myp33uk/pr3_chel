@@ -80,13 +80,20 @@ namespace pr3_chel
 
         private void Clear(object sender, RoutedEventArgs e)
         {
-            MatrixOperation.Clear(_matrix);
-            dataGrid.ItemsSource = VisualArray.ToDataTable(_matrix).DefaultView;
-            columnOut.Clear();
-            rowOut.Clear();
-            numberMin.Clear();
-            numberMax.Clear();
-            resultOut.Clear();
+            if (_matrix != null)
+            {
+                MatrixOperation.Clear(_matrix);
+                dataGrid.ItemsSource = VisualArray.ToDataTable(_matrix).DefaultView;
+                columnOut.Clear();
+                rowOut.Clear();
+                numberMin.Clear();
+                numberMax.Clear();
+                resultOut.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Таблица и так пуста.");
+            }
         }
 
         private void Exit(object sender, RoutedEventArgs e)
